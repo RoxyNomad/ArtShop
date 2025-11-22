@@ -1,8 +1,9 @@
+// libs/domain/product/product.repository.ts
 import { Product } from './product.entity';
 
-export interface ProductRepository {
-  findById(id: string): Promise<Product>;
-  findAll(): Promise<Product[]>;
-  save(product: Product): Promise<Product>;
-  delete(id: string): Promise<void>;
+export abstract class ProductRepository {
+  abstract findById(id: string): Promise<Product>;
+  abstract findAll(): Promise<Product[]>;
+  abstract save(product: Product): Promise<Product>;
+  abstract delete(id: string): Promise<void>;
 }

@@ -1,3 +1,4 @@
+// libs/domain/product/product.entity.ts
 export class Product {
   id: string;
   name: string;
