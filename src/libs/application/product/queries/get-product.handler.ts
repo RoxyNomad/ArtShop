@@ -8,7 +8,7 @@ import { Product } from '../../../domain/product/product.entity';
 export class GetProductHandler implements IQueryHandler<GetProductQuery> {
   constructor(private readonly productRepository: ProductRepository) {}
 
-  async execute(query: GetProductQuery): Promise<Product> {
+  async execute(query: GetProductQuery): Promise<Product | null> {
     return await this.productRepository.findById(query.id);
   }
 }

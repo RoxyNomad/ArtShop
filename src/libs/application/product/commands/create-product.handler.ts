@@ -4,7 +4,9 @@ import { PrismaService } from '../../../infrastructure/database/prisma/prisma.se
 import { CreateProductCommand } from './create-product.command';
 
 @CommandHandler(CreateProductCommand)
-export class CreateProductHandler implements ICommandHandler<CreateProductCommand> {
+export class CreateProductHandler
+  implements ICommandHandler<CreateProductCommand>
+{
   constructor(private readonly prisma: PrismaService) {}
 
   async execute(command: CreateProductCommand) {

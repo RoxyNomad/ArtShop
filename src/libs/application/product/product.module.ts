@@ -4,6 +4,7 @@ import { CqrsModule } from '@nestjs/cqrs';
 import { PrismaModule } from '../../infrastructure/database/prisma/prisma.module';
 import { ProductRepository } from '../../domain/product/product.repository';
 import { ProductRepositoryImpl } from '../../infrastructure/database/prisma/repositories/product.repository.impl';
+import { ProductMapper } from '../../infrastructure/database/prisma/repositories/mappers/product.mapper';
 import { CreateProductHandler } from './commands/create-product.handler';
 import { GetProductHandler } from './queries/get-product.handler';
 
@@ -12,6 +13,7 @@ import { GetProductHandler } from './queries/get-product.handler';
   providers: [
     CreateProductHandler,
     GetProductHandler,
+    ProductMapper,
     {
       provide: ProductRepository,
       useClass: ProductRepositoryImpl,

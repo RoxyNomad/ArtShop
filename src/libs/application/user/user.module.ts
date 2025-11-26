@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { PrismaModule } from '../../infrastructure/database/prisma/prisma.module';
 import { UserRepository } from '../../domain/user/user.repository';
+import { UserMapper } from '../../infrastructure/database/prisma/repositories/mappers/user.mapper';
 import { UserRepositoryImpl } from '../../infrastructure/database/prisma/repositories/user.repository.impl';
 import { CreateUserHandler } from './commands/create-user.handler';
 
@@ -14,6 +15,7 @@ import { CreateUserHandler } from './commands/create-user.handler';
       provide: UserRepository,
       useClass: UserRepositoryImpl,
     },
+    UserMapper,
   ],
   exports: [UserRepository],
 })

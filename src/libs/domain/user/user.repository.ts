@@ -2,8 +2,8 @@
 import { User } from './user.entity';
 
 export abstract class UserRepository {
-  abstract findById(id: string): Promise<User>;
-  abstract findByEmail(email: string): Promise<User>;
+  abstract findById(id: string): Promise<User | null>;
+  abstract findByEmail(email: string): Promise<User | null>;
   abstract findAll(): Promise<User[]>;
   abstract save(user: User): Promise<User>;
   abstract delete(id: string): Promise<void>;
